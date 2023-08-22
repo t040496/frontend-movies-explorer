@@ -1,0 +1,17 @@
+@use '../../mixins.scss' as app;
+
+.block {
+  background: #E8E8E8;
+  height: 60px;
+  min-width: 90px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+  @include app.responsive-text(10, 16);
+
+  &:hover {
+    background-color: #f1f0f0;
+  }
+}

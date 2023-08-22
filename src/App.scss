@@ -1,0 +1,262 @@
+@use "./mixins.scss" as app;
+
+ul.links-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  @include app.responsive-text(10, 13);
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a, a:hover {
+    color: #000;
+    text-decoration: none;
+    font-size: inherit;
+  }
+}
+
+.light-color {
+  color: #A0A0A0
+}
+
+.page-section {
+  padding-left: 70px;
+  padding-right: 70px;
+
+  @media (max-width: 920px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+hr {
+  color: #000;
+  background: #000;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 -10px;
+
+  & .col-2 {
+    width: 50%;
+    padding: 0 10px;
+  }
+
+  & .col-3 {
+    width: percentage(100/3);
+    padding: 0 10px;
+
+    &-2 {
+      padding: 0 10px;
+      width: percentage(2*100/3);
+    }
+  }
+}
+
+.margin {
+  $sizes: (1024: 10, 920: 10, 768: 10, 680: 8, 480: 8, 320: 6);
+
+  @for $i from 10 through 1 {
+    &-#{$i} {
+      margin-top: #{$i*10}px;
+      margin-bottom: #{$i*10}px;
+
+      @each $size,$atom in $sizes {
+        @media (max-width: #{$size}px) {
+          margin-top: #{$i*$atom}px;
+          margin-bottom: #{$i*$atom}px;
+        }
+      }
+
+      &-top {
+        margin-bottom: initial;
+        margin-top: #{$i*10}px;
+
+        @each $size,$atom in $sizes {
+          @media (max-width: #{$size}px) {
+            margin-top: #{$i*$atom}px;
+          }
+        }
+      }
+
+      &-bottom {
+        margin-top: initial;
+        margin-bottom: #{$i*10}px;
+
+        @each $size,$atom in $sizes {
+          @media (max-width: #{$size}px) {
+            margin-bottom: #{$i*$atom}px;
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 400;
+  @include app.heading-opts;
+  @include app.responsive-text(10, 50);
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+  @include app.heading-opts;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 400;
+  @include app.heading-opts;
+  @include app.responsive-text(10, 22);
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 25px 0;
+  @include app.heading-opts;
+  @include app.responsive-text(10, 20);
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 25px 0;
+  @include app.heading-opts;
+  @include app.responsive-text(10, 18);
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  @include app.responsive-text(10, 16);
+}
+
+span {
+  @include app.responsive-text(10, 13);
+}
+
+button {
+  &.clean-style {
+    background: transparent;
+    border: none 0;
+    outline: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+}
+
+.txt {
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}
+
+.max-width {
+  &-480 {
+    max-width: 480px;
+  }
+
+  &-580 {
+    max-width: 580px;
+  }
+}
+
+.margin-center {
+  margin: 0 auto;
+}
+
+.flexbox {
+  display: flex;
+
+  &-wrapped {
+    flex-wrap: wrap;
+  }
+
+  &-wide {
+    flex: 1
+  }
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-spacebetween-x {
+    justify-content: space-between
+  }
+
+  &-center-x {
+    justify-content: center;
+  }
+
+  &-center-y {
+    align-items: center;
+  }
+
+  &-gap-1 {
+    gap: 10px;
+  }
+
+  &-gap-5 {
+    gap: 50px;
+  }
+
+  &-gap-7 {
+    gap: 70px;
+  }
+
+  &-max-grow {
+    flex-grow: 1;
+  }
+}
+
+.color {
+  &-light {
+    color: #A0A0A0
+  }
+
+  &-blue {
+    color: #3456F3
+  }
+}

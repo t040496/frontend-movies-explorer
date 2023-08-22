@@ -1,0 +1,18 @@
+.uikitPage {
+  padding: 100px 35px;
+  width: 100%;
+
+  &__wrapper {
+    margin-top: 30px;
+  }
+
+  &__collectionWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &-col {
+      flex-direction: column;
+    }
+  }
+}

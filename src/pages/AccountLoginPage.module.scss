@@ -1,0 +1,21 @@
+.accountLoginPage {
+  margin: 0 auto;
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 25px;
+  width: 100%;
+  box-sizing: content-box;
+  align-self: center;
+
+  &__submitBtn {
+    margin-top: 100px;
+  }
+
+  &__logo {
+    width: 38px;
+  }
+}

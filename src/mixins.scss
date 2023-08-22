@@ -1,0 +1,58 @@
+@mixin page-std-options {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@mixin heading-opts {
+  &.non-top-margin {
+    margin-top: 0;
+  }
+
+  &.non-bottom-margin {
+    margin-top: 0;
+  }
+
+  &.light-variant {
+    color: #A0A0A0;
+    font-weight: 400;
+  }
+
+  @for $i from 1 through 9 {
+    &.bold-#{$i*100} {
+      font-weight: #{$i*100};
+    }
+  }
+}
+
+@mixin responsive-text($to, $from) {
+  $sizes: 320, 480, 680, 768, 920, 1024;
+
+  &.responsive {
+    @for $i from $from through $to {
+      @each $size in $sizes {
+        &-#{$size} {
+          &--#{$i} {
+            @media (max-width: #{$size}px) {
+              font-size: #{$i}px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-responsive {
+    @for $i from $from through $to {
+      @each $size in $sizes {
+        &-#{$size} {
+          &--#{$i} {
+            @media (max-width: #{$size}px) {
+              font-size: #{$i}px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

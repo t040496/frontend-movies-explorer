@@ -1,0 +1,56 @@
+.button {
+  cursor: pointer;
+  background: transparent;
+  border: 0 none;
+  outline: none;
+  min-width: 76px;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 300ms ease;
+  padding: 0 10px;
+  flex-shrink: 0;
+  font-size: 12px;
+
+  &-wide {
+    width: 100%;
+  }
+
+  &-responsive {
+    @media (max-width: 480px) {
+      height: 26px;
+      font-size: 10px;
+      padding: 0 7px;
+      min-width: 54px;
+    }
+  }
+
+  &-color-blue {
+    background: #3456F3;
+    color: #fff;
+
+    &:hover {
+      background: #5e78e9;
+    }
+  }
+
+  &-disabled {
+    opacity: .5;
+    cursor: default
+  }
+
+  &-color-default {
+    color: #000;
+
+    &:hover {
+      background: #e7e6e6;
+    }
+  }
+
+  &-variant-circle {
+    padding: 0;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    min-width: initial;
+  }
+}

@@ -1,0 +1,110 @@
+@use "../../mixins.scss" as app;
+
+.pageContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 100vh;
+
+  &__authBox {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 74px;
+    @include app.page-std-options;
+
+    &-background {
+      background: #DDDEE3;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    background: #F8F8F8;
+    padding-top: 80px;
+    font-size: 13px;
+    @include app.page-std-options;
+  }
+
+  &__main {
+    display: flex;
+    flex: 1;
+  }
+
+  &__footerWrapper {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #E8E8E8;
+    height: 50px;
+
+    @media (max-width: 480px) {
+      flex-direction: column-reverse;
+      height: auto;
+      padding: 20px 0;
+      gap: 35px;
+
+      :global {
+        .links-list {
+          flex-direction: column;
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+  :global {
+    .links-list {
+      display: flex;
+      gap: 15px;
+    }
+  }
+}
+
+
+.pageContainerProtected {
+  &__header,
+  &__footer {
+    background-color: transparent;
+  }
+
+  &__navigation {
+    flex: 1;
+
+    :global {
+      a.active {
+        font-weight: 500;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__menuButton {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &__logo {
+      margin-right: auto
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__accountButton {
+      display: none!important;
+    }
+
+    &__menuButton {
+      display: block;
+    }
+  }
+}

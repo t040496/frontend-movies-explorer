@@ -1,0 +1,14 @@
+build
+.yarn
+*.html
+*.yml
+**/node_modules/*
+eslint.config.js
+.eslintrc.js
+jest.config.js
+dist
+*.json
+public
+*.css
+*.log
+yarn.lock

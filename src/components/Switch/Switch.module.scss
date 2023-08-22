@@ -1,0 +1,27 @@
+.switch {
+  background-color: #b3eece;
+  width: 30px;
+  height: 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  cursor: pointer;
+  margin-left: 0;
+  transition: all 300ms ease;
+
+  &__dot {
+    transition: all 200ms ease;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+  }
+
+  &-on {
+    background-color: #2BE080;
+    & .switch__dot {
+      margin-left: 15px;
+    }
+  }
+}

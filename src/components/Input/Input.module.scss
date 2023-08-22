@@ -1,0 +1,47 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    font-size: 10px;
+    color: #A0A0A0;
+    transition: all 300ms ease;
+  }
+
+  &__wrapper {
+    display: flex;
+    border-bottom: 1px solid #E8E8E8;
+    min-width: 200px;
+    padding: 0 0 7px;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 300ms ease;
+
+    &-focused {
+      border-bottom-color: #3456F3;
+
+      label {
+        color: #7b7b7b
+      }
+    }
+  }
+
+
+  input[type],
+  input[type]:focus {
+    border: none 0;
+    background: transparent;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    height: 18px;
+    line-height: 18px;
+  }
+
+  &__message {
+    font-size: 12px;
+    color: rgb(226, 113, 113)
+  }
+}

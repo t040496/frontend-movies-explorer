@@ -1,0 +1,52 @@
+@use "../mixins.scss" as app;
+
+.savedMoviesPage {
+  @include app.page-std-options;
+  padding: 50px 0;
+
+  &__catalog {
+    border-top: #E8E8E8 solid 1px;
+    padding-top: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    &-wrapper {
+      display: grid;
+      row-gap: 38px;
+      column-gap: 20px;
+      grid-template-columns: repeat(auto-fit, 270px);
+      justify-content: space-evenly;
+
+      @media (max-width: 920px) {
+        grid-template-columns: repeat(auto-fit, 339px);
+        row-gap: 30px;
+        column-gap: 30px;
+      }
+
+      @media (max-width: 680px) {
+        grid-template-columns: repeat(auto-fit, 300px);
+        row-gap: 34px;
+        column-gap: 34px;
+      }
+    }
+
+    &-placeholder {
+      font-size: 24px;
+      color: rgba(0,0,0,.2);
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-loadmore {
+      width: 200px;
+    }
+  }
+}

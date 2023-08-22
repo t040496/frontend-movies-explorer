@@ -1,0 +1,35 @@
+@use "../../mixins.scss" as app;
+
+.progress {
+  display: flex;
+  background: #F2F2F2;
+  font-size: 14px;
+  @include app.responsive-text(10, 14);
+
+  &__body {
+    height: 36px;
+    background-color: #3456F3;
+    color: #fff;
+  }
+
+  &__unused {
+    flex: 1;
+    color: #000
+  }
+
+  &__rect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-transparent {
+    background-color: transparent;
+
+    .progress__body,
+    .progress__unused {
+      background-color: transparent;
+      color: #A0A0A0
+    }
+  }
+}

@@ -1,0 +1,174 @@
+@use "../mixins.scss" as app;
+
+.mainPage {
+  @include app.page-std-options;
+
+  &__banner {
+    height: 524px;
+    font-size: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background: #DDDEE3 url(../images/banner-bg.png) no-repeat 50% 50%;
+    @include app.responsive-text(10, 50);
+
+    span {
+      max-width: 730px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      background-size: 80%;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 66px;
+    background: #F5F5F5;
+
+    :global {
+      ul.links-list {
+        display: flex;
+        gap: 25px;
+
+        a {
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__pageSection {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    &__title {
+      margin: 0 0 60px;
+      border-bottom: 1px solid #000;
+      padding: 0 0 20px;
+    }
+
+    &-light {
+      background-color: #FAFAFA;
+    }
+
+    &-gray {
+      background-color: #F5F5F5;
+    }
+
+    &-aboutProject {
+      @media (max-width: 480px) {
+        :global {
+          .columns {
+            flex-direction: column;
+
+            .col {
+              width: auto;
+
+              & + .col {
+                margin-top: 40px
+              }
+            }
+
+            h5 {
+              margin: 0 0 20px;
+            }
+          }
+        }
+      }
+    }
+
+    &-technologies {
+      @media (max-width: 480px) {
+        :global {
+          .flexbox {
+            padding: 0 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 90px);
+          }
+        }
+      }
+    }
+
+    &-aboutMe {
+      @media (max-width: 680px) {
+        :global {
+          .columns {
+            flex-direction: column-reverse;
+
+            .col {
+              width: auto;
+            }
+
+            img {
+              min-width: 100%;
+            }
+
+            h1 {
+              margin-top: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+  }
+
+  &__myphoto {
+    max-width: 270px;
+    border-radius: 10px;
+
+    @media (max-width: 768px) {
+      max-width: 255px;
+    }
+  }
+
+  &__folio {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 25px 0 0;
+    padding: 0;
+    font-size: 30px;
+    @include app.responsive-text(10, 30);
+
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-bottom: 1px solid #E8E8E8;
+
+      &:last-child {
+        border: none 0;
+      }
+    }
+
+    a {
+      display: flex;
+      transition: all 100ms ease;
+      padding: 25px 0;
+      font-size: inherit;
+      justify-content: space-between;
+
+      &:hover {
+        text-decoration: none;
+        color: #6f6f6f
+      }
+
+      @media (max-width: 480px) {
+        padding: 20px 0;
+      }
+    }
+  }
+}
