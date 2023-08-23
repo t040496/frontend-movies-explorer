@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./SearchBar.module.scss";
 import searchIconPath from "../../images/search-icon.svg";
 import searchIconWhitePath from "../../images/search-icon-white.svg";
 import { Button } from "../Button/Button";
 import { Switch } from "../Switch/Switch";
-import { useDebounce } from "../../hooks/useDebounce";
 import cn from "classnames";
 
 export interface ISearchBarProps {
@@ -23,7 +22,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
   const [searchText, setSearchText] = useState<string | null>(
     defaultSearchValue,
   );
-  const debValue = useDebounce(searchText, 500);
+  const [hasError, setHasErrorState] = useState<boolean>(false);
 
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -35,11 +34,16 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
     }
   };
 
-  useEffect(() => {
-    if (onSearch && typeof debValue === "string") {
-      onSearch(debValue);
+  const handleOnSearchTxt = useCallback(() => {
+    if (onSearch) {
+      if (searchText) {
+        onSearch(searchText);
+        setHasErrorState(false);
+      } else {
+        setHasErrorState(true);
+      }
     }
-  }, [debValue]);
+  }, [searchText]);
 
   return (
     <div className={styles.searchBar}>
@@ -51,7 +55,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
           onChange={handleOnSearch}
           value={searchText || ""}
         />
-        <Button color="blue" variant="circle">
+        <Button color="blue" variant="circle" onClick={handleOnSearchTxt}>
           <img src={searchIconWhitePath} alt="Search" />
         </Button>
         <div
@@ -66,6 +70,11 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
             Короткометражки
           </span>
         </div>
+        {hasError && (
+          <div className={styles.searchBar__error}>
+            Нужно ввести ключевое слово
+          </div>
+        )}
       </div>
       <div
         className={cn(

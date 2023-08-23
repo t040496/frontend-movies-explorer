@@ -1,7 +1,6 @@
 import { IMyProfileResponse, myProfile } from "api/mainApi";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
-import { useLocation } from "react-router";
 
 export interface IUseAuthHookProps {
   onlyCheck?: boolean;
@@ -13,7 +12,6 @@ export interface IUserAuthHookReturn {
 }
 
 export const useAuth = (props?: IUseAuthHookProps): IUserAuthHookReturn => {
-  const location = useLocation();
   const [isLoaded, setLoadedState] = useState<boolean>(false);
 
   const [profileData, setProfileData] =
@@ -42,7 +40,7 @@ export const useAuth = (props?: IUseAuthHookProps): IUserAuthHookReturn => {
 
   useEffect(() => {
     fetchProfile();
-  }, [location.pathname]);
+  }, []);
 
   return {
     profileData,
