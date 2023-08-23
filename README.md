@@ -21,5 +21,9 @@ http://diplom-ts.nomoreparties.sbs
 ## Макет
 https://disk.yandex.ru/d/SYr29NwXJq5mTA
 
+
+
+=======
 Cсылка на pull request
+
 https://github.com/t040496/frontend-movies-explorer/pull/1

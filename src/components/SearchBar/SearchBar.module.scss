@@ -11,6 +11,7 @@
     padding: 0 25px;
     flex: 1;
     gap: 10px;
+    position: relative;
   }
 
   input[type="text"],
@@ -38,6 +39,14 @@
     background-color: #CBCBCB;
     margin: 0 10px;
     flex-shrink: 0;
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    right: initial;
+    color: rgb(225, 114, 114);
   }
 
   &__switch-container {
@@ -71,7 +80,13 @@
   @media (max-width: 680px) {
     flex-direction: column;
     align-items: stretch;
-    gap: 40px;
+    gap: 55px;
+
+    &__error {
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
 
     &__wrapper {
       flex: none
